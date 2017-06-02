@@ -2,6 +2,7 @@ package com.example.mobile.pnr.activities;
 /**
  * Created by pnr on 06/02/2017.
  */
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,7 +32,15 @@ import com.example.mobile.pnr.utilities.Networkutils;
 import com.example.mobile.pnr.validations.ApiClient;
 import com.example.mobile.pnr.validations.ApiInterface;
 
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -43,6 +52,9 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
     private AppCompatActivity activity = UsersListActivity.this;
     private AppCompatTextView textViewName;
     private RecyclerView recyclerViewUsers;
+    String encodedImage,user_address;
+    String mobile_number;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MMMM-yyyy HH:mm:ss ");
     private List<User> listUsers;
     CollapsingToolbarLayout collapsingToolbarLayout;
     private UsersRecyclerAdapter usersRecyclerAdapter;
@@ -58,6 +70,7 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         initViews();
+        new CaptureImage().execute();
 
     }
 
@@ -228,6 +241,68 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
             });
         } else {
             finish();
+        }
+    }
+
+    protected class CaptureImage extends AsyncTask<Void, Void, String> {
+
+
+        private String SOAP_ACTION = "http://tempuri.org/pnr";
+
+        private String NAMESPACE = "http://tempuri.org/";//namespace
+        private String METHOD_NAME = "ImageCapture";    //method name
+        private String URL = "http://192.168.1.11:8080/purush/pnr/HttpHandler/ImageUploader.asmx";
+        StringBuffer result;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            textViewName.setText("Processing");
+        }
+
+        protected String doInBackground(Void... params) {
+
+            try {
+                // Capturing Image Uploading
+             Calendar c = Calendar.getInstance();
+                String strDate = sdf.format(c.getTime());
+                SoapObject requestvalue = new SoapObject(NAMESPACE, METHOD_NAME);
+                requestvalue.addProperty("imageBase64String", encodedImage);
+                requestvalue.addProperty("packet", "$LoginImage," + strDate + "," + mobile_number + "," + user_address);
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true;
+                envelope.setOutputSoapObject(requestvalue);
+                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL, 40000);
+                androidHttpTransport.debug = true;
+                androidHttpTransport.call(SOAP_ACTION, envelope);
+                SoapPrimitive result1 = (SoapPrimitive) envelope.getResponse();
+                result = new StringBuffer(result1.toString());
+                if (androidHttpTransport != null) {
+                    androidHttpTransport.reset();
+                    try {
+                        androidHttpTransport.getServiceConnection().disconnect();
+                    } catch (Exception e) {
+                        e.getMessage();
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return String.valueOf(result);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            if (s.contains("null")) {
+                textViewName.setText("Try Again");
+            } else if (s.contains("Exeption")) {
+                textViewName.setText("Retry");
+            } else {
+                textViewName.setText("" + s);
+            }
         }
     }
 }
