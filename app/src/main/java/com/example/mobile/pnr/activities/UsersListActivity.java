@@ -267,8 +267,8 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
              Calendar c = Calendar.getInstance();
                 String strDate = sdf.format(c.getTime());
                 SoapObject requestvalue = new SoapObject(NAMESPACE, METHOD_NAME);
-                requestvalue.addProperty("imageBase64String", encodedImage);
-                requestvalue.addProperty("packet", "$LoginImage," + strDate + "," + mobile_number + "," + user_address);
+                requestvalue.addProperty("userDetails", encodedImage);
+                requestvalue.addProperty("packet", "$UserPackets," + strDate + "," + mobile_number + "," + user_address);
                 SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
                 envelope.dotNet = true;
                 envelope.setOutputSoapObject(requestvalue);
