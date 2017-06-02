@@ -1,5 +1,5 @@
 package com.example.mobtech_02.pnr.activities;
- 
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,21 +11,31 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.example.mobtech_02.pnr.Models.AddValue;
 import com.example.mobtech_02.pnr.Models.User;
 import com.example.mobtech_02.pnr.R;
 import com.example.mobtech_02.pnr.adapters.UsersRecyclerAdapter;
 import com.example.mobtech_02.pnr.containers.DatabaseHelper;
+import com.example.mobtech_02.pnr.utilities.Networkutils;
+import com.example.mobtech_02.pnr.validations.ApiClient;
+import com.example.mobtech_02.pnr.validations.ApiInterface;
 
 import java.util.ArrayList;
 import java.util.List;
- 
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class UsersListActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
  
     private AppCompatActivity activity = UsersListActivity.this;
@@ -173,5 +183,49 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
                 break;
         }
         return true;
+    }
+    private void add_Country(String countryValue) {
+        if (new Networkutils(this).isConnectingToInternet()) {
+           ApiInterface apiService =
+                    ApiClient.getClient().create(ApiInterface.class);
+            Call<AddValue> call = apiService.addCountry(countryValue,"",1);
+            call.enqueue(new Callback<AddValue>() {
+                @Override
+                public void onResponse(Call<AddValue> call, Response<AddValue> response) {
+                    try {
+                        if (response.code() == 200) {
+                            Log.i("response", response.body().toString());
+                            AddValue AddValue = response.body();
+
+                            if(AddValue.getStatus().equalsIgnoreCase("1")) {
+                                Toast.makeText(UsersListActivity.this, AddValue.getMessage(), Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(UsersListActivity.this, AddValue.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+
+
+                        } else {
+                            //Global.showToast(mContext, "out of 200");
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        e.getMessage();
+                        Log.d("excepiton: ", e.getMessage());
+
+//                        Global.showToast(mContext, getString(R.string.unable_to_reach));
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<AddValue> call, Throwable t) {
+                    Log.e("Error", t.toString());
+//                    Global.showToast(mContext, getString(R.string.unable_to_reach));
+                }
+
+
+            });
+        } else {
+            finish();
+        }
     }
 }
