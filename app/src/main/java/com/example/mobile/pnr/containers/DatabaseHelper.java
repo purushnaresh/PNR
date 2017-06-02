@@ -1,12 +1,14 @@
-package com.example.mobtech_02.pnr.containers;
-
+package com.example.mobile.pnr.containers;
+/**
+ * Created by pnr on 06/02/2017.
+ */
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.mobtech_02.pnr.Models.User;
+import com.example.mobile.pnr.Models.User;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.mobtech_02.pnr.utilities;
-
+package com.example.mobile.pnr.utilities;
+/**
+ * Created by pnr on 06/02/2017.
+ */
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -36,7 +38,7 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.example.mobtech_02.pnr.R;
+import com.example.mobile.pnr.R;
 
 
 public class CirculerView extends ImageView {

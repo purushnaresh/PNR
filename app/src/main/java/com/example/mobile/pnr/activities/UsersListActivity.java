@@ -1,5 +1,7 @@
-package com.example.mobtech_02.pnr.activities;
-
+package com.example.mobile.pnr.activities;
+/**
+ * Created by pnr on 06/02/2017.
+ */
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -20,14 +22,14 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.mobtech_02.pnr.Models.AddValue;
-import com.example.mobtech_02.pnr.Models.User;
-import com.example.mobtech_02.pnr.R;
-import com.example.mobtech_02.pnr.adapters.UsersRecyclerAdapter;
-import com.example.mobtech_02.pnr.containers.DatabaseHelper;
-import com.example.mobtech_02.pnr.utilities.Networkutils;
-import com.example.mobtech_02.pnr.validations.ApiClient;
-import com.example.mobtech_02.pnr.validations.ApiInterface;
+import com.example.mobile.pnr.Models.AddValue;
+import com.example.mobile.pnr.Models.User;
+import com.example.mobile.pnr.R;
+import com.example.mobile.pnr.adapters.UsersRecyclerAdapter;
+import com.example.mobile.pnr.containers.DatabaseHelper;
+import com.example.mobile.pnr.utilities.Networkutils;
+import com.example.mobile.pnr.validations.ApiClient;
+import com.example.mobile.pnr.validations.ApiInterface;
 
 import java.util.ArrayList;
 import java.util.List;

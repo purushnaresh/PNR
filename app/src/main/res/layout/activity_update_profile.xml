@@ -28,7 +28,7 @@
             android:gravity="center"
             android:layout_height="wrap_content">
 
-            <com.example.mobtech_02.pnr.utilities.CirculerView
+            <com.example.mobile.pnr.utilities.CirculerView
                 android:id="@+id/circulerView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"

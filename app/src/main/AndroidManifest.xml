@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mobtech_02.pnr">
+    package="com.example.mobile.pnr">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.LoginActivity"
+            android:name="com.example.mobile.pnr.activities.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,15 +20,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.RegisterActivity"
+            android:name="com.example.mobile.pnr.activities.RegisterActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.UsersListActivity"
+            android:name="com.example.mobile.pnr.activities.UsersListActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.UpdateProfileActivity"
+            android:name="com.example.mobile.pnr.activities.UpdateProfileActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
     </application>

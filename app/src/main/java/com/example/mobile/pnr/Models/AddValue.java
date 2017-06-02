@@ -1,5 +1,7 @@
-package com.example.mobtech_02.pnr.Models;
-
+package com.example.mobile.pnr.Models;
+/**
+ * Created by pnr on 06/02/2017.
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

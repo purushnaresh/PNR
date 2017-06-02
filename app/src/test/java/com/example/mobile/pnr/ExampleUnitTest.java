@@ -1,4 +1,4 @@
-package com.example.mobtech_02.pnr;
+package com.example.mobile.pnr;
 
 import org.junit.Test;
 

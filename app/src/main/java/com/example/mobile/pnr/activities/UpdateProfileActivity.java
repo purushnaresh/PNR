@@ -1,5 +1,7 @@
-package com.example.mobtech_02.pnr.activities;
-
+package com.example.mobile.pnr.activities;
+/**
+ * Created by pnr on 06/02/2017.
+ */
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -12,10 +14,10 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.example.mobtech_02.pnr.Models.User;
-import com.example.mobtech_02.pnr.R;
-import com.example.mobtech_02.pnr.containers.DatabaseHelper;
-import com.example.mobtech_02.pnr.validations.InputValidation;
+import com.example.mobile.pnr.Models.User;
+import com.example.mobile.pnr.R;
+import com.example.mobile.pnr.containers.DatabaseHelper;
+import com.example.mobile.pnr.validations.InputValidation;
 
 public class UpdateProfileActivity extends AppCompatActivity implements View.OnClickListener {
  

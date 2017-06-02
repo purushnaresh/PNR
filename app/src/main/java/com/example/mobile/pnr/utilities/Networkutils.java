@@ -1,6 +1,7 @@
-package com.example.mobtech_02.pnr.utilities;
-/* This class for checking internet connection
-* */
+package com.example.mobile.pnr.utilities;
+/**
+ * Created by pnr on 06/02/2017.
+ */
 
 import android.content.Context;
 import android.net.ConnectivityManager;

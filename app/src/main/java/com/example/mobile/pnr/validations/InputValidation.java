@@ -1,5 +1,7 @@
-package com.example.mobtech_02.pnr.validations;
-
+package com.example.mobile.pnr.validations;
+/**
+ * Created by pnr on 06/02/2017.
+ */
 import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.TextInputEditText;

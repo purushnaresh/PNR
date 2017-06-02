@@ -1,7 +1,7 @@
-package com.example.mobtech_02.pnr.validations;
+package com.example.mobile.pnr.validations;
 
 /**
- * Created by Mobtech-07 on 8/25/2016.
+ * Created by pnr on 06/02/2017.
  */
 
 import java.util.concurrent.TimeUnit;
