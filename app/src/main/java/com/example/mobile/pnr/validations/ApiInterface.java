@@ -9,9 +9,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-/**
- * Created by Mobtech-02 on 6/2/2017 5:01 PM.
- */
+
 
 public interface ApiInterface {
 

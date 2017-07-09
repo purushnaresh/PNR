@@ -14,7 +14,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
 
    public static final String BASE_URL = "http://www.purushnaresh.in/pnr/";
-   //public static final String BASE_URL = "http://172.31.0.25:8084/RestService/";
     private static Retrofit retrofit = null;
     public static Retrofit getClient() {
         if (retrofit==null) {
