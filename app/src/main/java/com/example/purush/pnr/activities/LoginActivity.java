@@ -16,7 +16,7 @@ import android.view.View;
 import com.example.purush.pnr.containers.DbHelper;
 import com.example.purush.pnr.R;
 import com.example.purush.pnr.validations.InputValidation;
-
+//User Login Activity
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
  
@@ -27,7 +27,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
  
     private TextInputEditText textInputEditTextEmail;
     private TextInputEditText textInputEditTextPassword;
- 
     private AppCompatButton appCompatButtonLogin;
  
     private AppCompatTextView textViewLinkRegister;
