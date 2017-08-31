@@ -23,48 +23,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/pnr" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-
-            <com.example.mobile.pnr.utilities.CirculerView
-                android:id="@+id/circulerView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/google"
-                android:layout_marginRight="10dp" />
-
-            <com.example.mobile.pnr.utilities.CirculerView
-                android:layout_width="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/fb"
-                android:layout_marginLeft="10dp" />
-        </LinearLayout>
-        <android.support.v7.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-            <include layout="@layout/divider"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="1dp" />
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OR"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:background="@drawable/circle"/>
-            <include layout="@layout/divider"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="1dp" />
-            </android.support.v7.widget.LinearLayoutCompat>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayoutEmail"
@@ -95,6 +53,7 @@
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
                 android:maxLines="1"
+
                 android:textColor="@android:color/white" />
         </android.support.design.widget.TextInputLayout>
 
@@ -110,9 +69,55 @@
             android:id="@+id/textViewLinkRegister"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="@string/text_not_member"
             android:textSize="16dp" />
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <include layout="@layout/divider"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/circle"/>
+            <include layout="@layout/divider"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp" />
+        </android.support.v7.widget.LinearLayoutCompat>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <com.example.purush.pnr.utilities.CircleView
+                android:id="@+id/circulerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/google"
+                android:layout_marginRight="10dp" />
+
+            <com.example.purush.pnr.utilities.CircleView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/fb"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
+
     </android.support.v7.widget.LinearLayoutCompat>
 </android.support.v4.widget.NestedScrollView>

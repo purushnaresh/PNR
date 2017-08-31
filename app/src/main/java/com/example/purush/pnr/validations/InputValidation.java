@@ -1,4 +1,4 @@
-package com.example.mobile.pnr.validations;
+package com.example.purush.pnr.validations;
 /**
  * Created by pnr on 06/02/2017.
  */
@@ -30,7 +30,7 @@ public class InputValidation {
      * @param message
      * @return
      */
-    public boolean isInputEditTextFilled(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message) {
+    public boolean isEditTextFilled(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message) {
         String value = textInputEditText.getText().toString().trim();
         if (value.isEmpty()) {
             textInputLayout.setError(message);
@@ -52,7 +52,7 @@ public class InputValidation {
      * @param message
      * @return
      */
-    public boolean isInputEditTextEmail(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message) {
+    public boolean isEditTextEmail(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message) {
         String value = textInputEditText.getText().toString().trim();
         if (value.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(value).matches()) {
             textInputLayout.setError(message);
@@ -64,7 +64,7 @@ public class InputValidation {
         return true;
     }
  
-    public boolean isInputEditTextMatches(TextInputEditText textInputEditText1, TextInputEditText textInputEditText2, TextInputLayout textInputLayout, String message) {
+    public boolean isEditTextMatches(TextInputEditText textInputEditText1, TextInputEditText textInputEditText2, TextInputLayout textInputLayout, String message) {
         String value1 = textInputEditText1.getText().toString().trim();
         String value2 = textInputEditText2.getText().toString().trim();
         if (!value1.contentEquals(value2)) {

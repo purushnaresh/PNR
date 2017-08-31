@@ -1,4 +1,4 @@
-package com.example.mobile.pnr;
+package com.example.purush.pnr;
 
 import org.junit.Test;
 

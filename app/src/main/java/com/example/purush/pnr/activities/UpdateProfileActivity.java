@@ -1,4 +1,4 @@
-package com.example.mobile.pnr.activities;
+package com.example.purush.pnr.activities;
 /**
  * Created by pnr on 06/02/2017.
  */
@@ -14,10 +14,10 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.example.mobile.pnr.Models.User;
-import com.example.mobile.pnr.R;
-import com.example.mobile.pnr.containers.DatabaseHelper;
-import com.example.mobile.pnr.validations.InputValidation;
+import com.example.purush.pnr.Models.User;
+import com.example.purush.pnr.R;
+import com.example.purush.pnr.containers.DbHelper;
+import com.example.purush.pnr.validations.InputValidation;
 
 public class UpdateProfileActivity extends AppCompatActivity implements View.OnClickListener {
  
@@ -39,7 +39,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     private AppCompatTextView appCompatTextViewLoginLink,text_change_password;
  
     private InputValidation inputValidation;
-    private DatabaseHelper databaseHelper;
+    private DbHelper databaseHelper;
     private User user;
     private int onClick_password=1;
  String emailFromIntent;
@@ -94,7 +94,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
      */
     private void initObjects() {
         inputValidation = new InputValidation(activity);
-        databaseHelper = new DatabaseHelper(activity);
+        databaseHelper = new DbHelper(activity);
         user = new User();
  
     }
@@ -134,18 +134,18 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
      * This method is to validate the input text fields and post data to SQLite
      */
     private void postDataToSQLite() {
-        if (!inputValidation.isInputEditTextFilled(textInputEditTextName, textInputLayoutName, getString(R.string.error_message_name))) {
+        if (!inputValidation.isEditTextFilled(textInputEditTextName, textInputLayoutName, getString(R.string.error_message_name))) {
             return;
         }
         if(onClick_password==0){
-            if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_password))) {
+            if (!inputValidation.isEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_password))) {
                 return;
             }
-            if (!inputValidation.isInputEditTextMatches(textInputEditTextPassword, textInputEditTextConfirmPassword,
+            if (!inputValidation.isEditTextMatches(textInputEditTextPassword, textInputEditTextConfirmPassword,
                     textInputLayoutConfirmPassword, getString(R.string.error_password_match))) {
                 return;
             }
-            if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_password))) {
+            if (!inputValidation.isEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_password))) {
                 return;
             }
 

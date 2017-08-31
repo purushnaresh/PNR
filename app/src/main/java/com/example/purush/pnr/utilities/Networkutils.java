@@ -1,4 +1,4 @@
-package com.example.mobile.pnr.utilities;
+package com.example.purush.pnr.utilities;
 /**
  * Created by pnr on 06/02/2017.
  */

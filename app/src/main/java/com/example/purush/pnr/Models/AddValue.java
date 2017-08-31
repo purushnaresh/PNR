@@ -1,4 +1,4 @@
-package com.example.mobile.pnr.Models;
+package com.example.purush.pnr.Models;
 /**
  * Created by pnr on 06/02/2017.
  */

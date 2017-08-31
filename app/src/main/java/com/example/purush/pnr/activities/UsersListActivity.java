@@ -1,4 +1,4 @@
-package com.example.mobile.pnr.activities;
+package com.example.purush.pnr.activities;
 /**
  * Created by pnr on 06/02/2017.
  */
@@ -23,14 +23,14 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.mobile.pnr.Models.AddValue;
-import com.example.mobile.pnr.Models.User;
-import com.example.mobile.pnr.R;
-import com.example.mobile.pnr.adapters.UsersRecyclerAdapter;
-import com.example.mobile.pnr.containers.DatabaseHelper;
-import com.example.mobile.pnr.utilities.Networkutils;
-import com.example.mobile.pnr.validations.ApiClient;
-import com.example.mobile.pnr.validations.ApiInterface;
+import com.example.purush.pnr.Models.AddValue;
+import com.example.purush.pnr.Models.User;
+import com.example.purush.pnr.R;
+import com.example.purush.pnr.adapters.UsersRecyclerAdapter;
+import com.example.purush.pnr.containers.DbHelper;
+import com.example.purush.pnr.utilities.Networkutils;
+import com.example.purush.pnr.validations.ApiClient;
+import com.example.purush.pnr.validations.ApiInterface;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -42,6 +42,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -54,11 +55,11 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
     private RecyclerView recyclerViewUsers;
     String encodedImage,user_address;
     String mobile_number;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MMMM-yyyy HH:mm:ss ");
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MMMM-yyyy HH:mm:ss ", Locale.getDefault());
     private List<User> listUsers;
     CollapsingToolbarLayout collapsingToolbarLayout;
     private UsersRecyclerAdapter usersRecyclerAdapter;
-    private DatabaseHelper databaseHelper;
+    private DbHelper databaseHelper;
     RelativeLayout accounts_layout;
     String emailFromIntent;
     RatingBar ratingBar;
@@ -110,7 +111,7 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
         recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
         recyclerViewUsers.setHasFixedSize(true);
         recyclerViewUsers.setAdapter(usersRecyclerAdapter);
-        databaseHelper = new DatabaseHelper(activity);
+        databaseHelper = new DbHelper(activity);
  
         emailFromIntent = getIntent().getStringExtra("EMAIL");
         textViewName.setText(emailFromIntent);

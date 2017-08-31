@@ -1,4 +1,4 @@
-package com.example.mobile.pnr;
+package com.example.purush.pnr;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

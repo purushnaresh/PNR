@@ -1,4 +1,4 @@
-package com.example.mobile.pnr.activities;
+package com.example.purush.pnr.activities;
 /**
  * Created by pnr on 06/02/2017.
  */
@@ -13,9 +13,9 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
-import com.example.mobile.pnr.containers.DatabaseHelper;
-import com.example.mobile.pnr.R;
-import com.example.mobile.pnr.validations.InputValidation;
+import com.example.purush.pnr.containers.DbHelper;
+import com.example.purush.pnr.R;
+import com.example.purush.pnr.validations.InputValidation;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AppCompatTextView textViewLinkRegister;
  
     private InputValidation inputValidation;
-    private DatabaseHelper databaseHelper;
+    private DbHelper dbHelper;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * This method is to initialize objects to be used
      */
     private void initObjects() {
-        databaseHelper = new DatabaseHelper(activity);
+        dbHelper = new DbHelper(activity);
         inputValidation = new InputValidation(activity);
  
     }
@@ -105,17 +105,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * This method is to validate the input text fields and verify login credentials from SQLite
      */
     private void verifyFromSQLite() {
-        if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
+        if (!inputValidation.isEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
             return;
         }
-        if (!inputValidation.isInputEditTextEmail(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
+        if (!inputValidation.isEditTextEmail(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
             return;
         }
-        if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_email))) {
+        if (!inputValidation.isEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_email))) {
             return;
         }
  
-        if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
+        if (dbHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
                 , textInputEditTextPassword.getText().toString().trim())) {
  
  

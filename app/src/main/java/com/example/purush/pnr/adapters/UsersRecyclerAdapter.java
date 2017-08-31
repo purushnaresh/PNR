@@ -1,4 +1,4 @@
-package com.example.mobile.pnr.adapters;
+package com.example.purush.pnr.adapters;
 /**
  * Created by pnr on 06/02/2017.
  */
@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mobile.pnr.Models.User;
-import com.example.mobile.pnr.R;
+import com.example.purush.pnr.Models.User;
+import com.example.purush.pnr.R;
 
 import java.util.List;
  

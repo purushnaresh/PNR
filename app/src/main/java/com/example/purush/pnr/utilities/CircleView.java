@@ -1,19 +1,8 @@
 /*
- * Copyright 2014 - 2017 Henning Dodenhof
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
+ * Copyright 2016 - 2017 PurushothamReddy
  * limitations under the License.
  */
-package com.example.mobile.pnr.utilities;
+package com.example.purush.pnr.utilities;
 /**
  * Created by pnr on 06/02/2017.
  */
@@ -38,10 +27,10 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.example.mobile.pnr.R;
+import com.example.purush.pnr.R;
 
 
-public class CirculerView extends ImageView {
+public class CircleView extends ImageView {
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
 
@@ -80,25 +69,25 @@ public class CirculerView extends ImageView {
     private boolean mBorderOverlay;
     private boolean mDisableCircularTransformation;
 
-    public CirculerView(Context context) {
+    public CircleView(Context context) {
         super(context);
 
         init();
     }
 
-    public CirculerView(Context context, AttributeSet attrs) {
+    public CircleView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CirculerView(Context context, AttributeSet attrs, int defStyle) {
+    public CircleView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CirculerView, defStyle, 0);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleView, defStyle, 0);
 
-        mBorderWidth = a.getDimensionPixelSize(R.styleable.CirculerView_civ_border_width, DEFAULT_BORDER_WIDTH);
-        mBorderColor = a.getColor(R.styleable.CirculerView_civ_border_color, DEFAULT_BORDER_COLOR);
-        mBorderOverlay = a.getBoolean(R.styleable.CirculerView_civ_border_overlay, DEFAULT_BORDER_OVERLAY);
-        mFillColor = a.getColor(R.styleable.CirculerView_civ_fill_color, DEFAULT_FILL_COLOR);
+        mBorderWidth = a.getDimensionPixelSize(R.styleable.CircleView_civ_border_width, DEFAULT_BORDER_WIDTH);
+        mBorderColor = a.getColor(R.styleable.CircleView_civ_border_color, DEFAULT_BORDER_COLOR);
+        mBorderOverlay = a.getBoolean(R.styleable.CircleView_civ_border_overlay, DEFAULT_BORDER_OVERLAY);
+        mFillColor = a.getColor(R.styleable.CircleView_civ_fill_color, DEFAULT_FILL_COLOR);
 
         a.recycle();
 

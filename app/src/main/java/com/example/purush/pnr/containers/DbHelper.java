@@ -1,4 +1,4 @@
-package com.example.mobile.pnr.containers;
+package com.example.purush.pnr.containers;
 /**
  * Created by pnr on 06/02/2017.
  */
@@ -8,12 +8,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.mobile.pnr.Models.User;
+import com.example.purush.pnr.Models.User;
 
 import java.util.ArrayList;
 import java.util.List;
  
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DbHelper extends SQLiteOpenHelper {
  
     // Database Version
     private static final int DATABASE_VERSION = 1;
@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * 
      * @param context
      */
-    public DatabaseHelper(Context context) {
+    public DbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
  
